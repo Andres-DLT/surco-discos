@@ -1,0 +1,23 @@
+{
+  "name": "surco",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "build:site": "SURCO_EXPORT=1 next build && node scripts/build-worker.mjs"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.2",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "stripe": "^23.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
