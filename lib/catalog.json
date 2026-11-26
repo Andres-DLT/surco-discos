@@ -1,66 +1,38 @@
 [
   {
-    "id": "head-hunters",
-    "title": "Head Hunters",
-    "artist": "Herbie Hancock",
-    "genre": "Jazz",
-    "year": 1973,
-    "price": 89000
+    "id": "hoodie",
+    "title": "Hoodie Sombra",
+    "category": "Sudaderas",
+    "color": "Negro lavado",
+    "price": 119000,
+    "sizes": ["S", "M", "L", "XL"],
+    "description": "Sudadera de corte amplio con hombros caídos, capucha y bolsillo frontal. El acabado lavado suaviza el negro."
   },
   {
-    "id": "blue-train",
-    "title": "Blue Train",
-    "artist": "John Coltrane",
-    "genre": "Jazz",
-    "year": 1957,
-    "price": 76000
+    "id": "tee",
+    "title": "Tee Static",
+    "category": "Playeras",
+    "color": "Blanco",
+    "price": 59000,
+    "sizes": ["S", "M", "L", "XL"],
+    "description": "Playera de cuello redondo y silueta holgada. El gráfico en azul cobalto contrasta con el fondo blanco."
   },
   {
-    "id": "rumours",
-    "title": "Rumours",
-    "artist": "Fleetwood Mac",
-    "genre": "Rock",
-    "year": 1977,
-    "price": 82000
+    "id": "cargo",
+    "title": "Cargo Distrito",
+    "category": "Pantalones",
+    "color": "Oliva",
+    "price": 99000,
+    "sizes": ["S", "M", "L", "XL"],
+    "description": "Pantalón de pierna amplia con bolsillos cargo laterales y acabado mate en verde oliva."
   },
   {
-    "id": "whats-going-on",
-    "title": "What’s Going On",
-    "artist": "Marvin Gaye",
-    "genre": "Soul",
-    "year": 1971,
-    "price": 78000
-  },
-  {
-    "id": "abbey-road",
-    "title": "Abbey Road",
-    "artist": "The Beatles",
-    "genre": "Rock",
-    "year": 1969,
-    "price": 94000
-  },
-  {
-    "id": "discovery",
-    "title": "Discovery",
-    "artist": "Daft Punk",
-    "genre": "Electrónica",
-    "year": 2001,
-    "price": 99000
-  },
-  {
-    "id": "kind-of-blue",
-    "title": "Kind of Blue",
-    "artist": "Miles Davis",
-    "genre": "Jazz",
-    "year": 1959,
-    "price": 85000
-  },
-  {
-    "id": "songs-in-the-key",
-    "title": "Songs in the Key of Life",
-    "artist": "Stevie Wonder",
-    "genre": "Soul",
-    "year": 1976,
-    "price": 96000
+    "id": "cap",
+    "title": "Gorra Core",
+    "category": "Accesorios",
+    "color": "Negro",
+    "price": 39000,
+    "sizes": ["Única"],
+    "description": "Gorra negra con visera curva, logotipo bordado al frente y ajuste en la parte posterior."
   }
 ]

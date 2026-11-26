@@ -1,23 +1,39 @@
-create table if not exists public.products (
- id text primary key, title text not null, artist text not null, genre text not null,
- year integer not null, price integer not null check(price > 0), position integer not null, active boolean not null default true
+begin;
+
+create table if not exists public.apparel_products (
+  id text primary key,
+  title text not null,
+  category text not null,
+  color text not null,
+  price integer not null check (price > 0),
+  sizes text[] not null check (cardinality(sizes) > 0),
+  description text not null,
+  position integer not null,
+  active boolean not null default true
 );
+
 create table if not exists public.orders (
- session_id text primary key, total integer not null, currency text not null, email text, shipping jsonb, items jsonb not null, created_at timestamptz not null default now()
+  session_id text primary key,
+  total integer not null,
+  currency text not null,
+  email text,
+  shipping jsonb,
+  items jsonb not null,
+  created_at timestamptz not null default now()
 );
-alter table public.products enable row level security;
+
+alter table public.apparel_products enable row level security;
 alter table public.orders enable row level security;
-revoke all on public.products, public.orders from anon, authenticated;
-grant select on public.products to service_role;
+revoke all on public.apparel_products, public.orders from public, anon, authenticated;
+grant select on public.apparel_products to service_role;
 grant select, insert on public.orders to service_role;
 
-insert into public.products(id,title,artist,genre,year,price,position) values
-('head-hunters','Head Hunters','Herbie Hancock','Jazz',1973,89000,0),
-('blue-train','Blue Train','John Coltrane','Jazz',1957,76000,1),
-('rumours','Rumours','Fleetwood Mac','Rock',1977,82000,2),
-('whats-going-on','What’s Going On','Marvin Gaye','Soul',1971,78000,3),
-('abbey-road','Abbey Road','The Beatles','Rock',1969,94000,4),
-('discovery','Discovery','Daft Punk','Electrónica',2001,99000,5),
-('kind-of-blue','Kind of Blue','Miles Davis','Jazz',1959,85000,6),
-('songs-in-the-key','Songs in the Key of Life','Stevie Wonder','Soul',1976,96000,7)
-on conflict(id) do nothing;
+insert into public.apparel_products(id, title, category, color, price, sizes, description, position)
+values
+  ('hoodie', 'Hoodie Sombra', 'Sudaderas', 'Negro lavado', 119000, array['S', 'M', 'L', 'XL'], 'Sudadera de corte amplio con hombros caídos, capucha y bolsillo frontal. El acabado lavado suaviza el negro.', 0),
+  ('tee', 'Tee Static', 'Playeras', 'Blanco', 59000, array['S', 'M', 'L', 'XL'], 'Playera de cuello redondo y silueta holgada. El gráfico en azul cobalto contrasta con el fondo blanco.', 1),
+  ('cargo', 'Cargo Distrito', 'Pantalones', 'Oliva', 99000, array['S', 'M', 'L', 'XL'], 'Pantalón de pierna amplia con bolsillos cargo laterales y acabado mate en verde oliva.', 2),
+  ('cap', 'Gorra Core', 'Accesorios', 'Negro', 39000, array['Única'], 'Gorra negra con visera curva, logotipo bordado al frente y ajuste en la parte posterior.', 3)
+on conflict (id) do nothing;
+
+commit;

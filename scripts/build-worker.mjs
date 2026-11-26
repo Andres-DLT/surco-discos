@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {build} from 'esbuild';
 const assets={};
-const types={html:'text/html; charset=utf-8',js:'text/javascript',css:'text/css',jpg:'image/jpeg',woff2:'font/woff2',json:'application/json'};
+const types={html:'text/html; charset=utf-8',js:'text/javascript',css:'text/css',jpg:'image/jpeg',ttf:'font/ttf',woff2:'font/woff2',json:'application/json'};
 async function collect(dir){
  for(const entry of await fs.readdir(dir,{withFileTypes:true})){
   const file=path.join(dir,entry.name);
