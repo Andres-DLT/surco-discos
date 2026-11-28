@@ -1,1 +1,1 @@
-export default { ...(process.env.SURCO_EXPORT ? {output:'export'} : {}), devIndicators:false };
+export default { ...(process.env.TCTSRK_EXPORT ? {output:'export'} : {}), devIndicators:false };

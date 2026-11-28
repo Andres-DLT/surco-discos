@@ -1,5 +1,7 @@
 # TCT$RK
 
+[Abre la tienda TCT$RK](https://tctsrk.andresdlt.chatgpt.site).
+
 Tienda de streetwear en español con Next.js, Stripe Checkout y Supabase. La colección de muestra incluye sudadera, playera, pantalón cargo y gorra. Los precios se muestran en pesos mexicanos y se almacenan en centavos.
 
 ## Desarrollo local

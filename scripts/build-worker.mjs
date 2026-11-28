@@ -1,13 +1,22 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
 import {build} from 'esbuild';
+
+const nextCli = fileURLToPath(import.meta.resolve('next/dist/bin/next'));
+execFileSync(process.execPath, [nextCli, 'build'], {
+  env: {...process.env, TCTSRK_EXPORT: '1'},
+  stdio: 'inherit',
+});
+
 const assets={};
 const types={html:'text/html; charset=utf-8',js:'text/javascript',css:'text/css',jpg:'image/jpeg',ttf:'font/ttf',woff2:'font/woff2',json:'application/json'};
 async function collect(dir){
  for(const entry of await fs.readdir(dir,{withFileTypes:true})){
   const file=path.join(dir,entry.name);
   if(entry.isDirectory())await collect(file);
-  else assets['/'+path.relative('out',file)]=[types[file.split('.').pop()]||'application/octet-stream',(await fs.readFile(file)).toString('base64')];
+  else assets['/'+path.relative('out',file).split(path.sep).join('/')]=[types[file.split('.').pop()]||'application/octet-stream',(await fs.readFile(file)).toString('base64')];
  }
 }
 await collect('out');

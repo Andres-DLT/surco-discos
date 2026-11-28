@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build:site": "SURCO_EXPORT=1 next build && node scripts/build-worker.mjs"
+    "build:site": "node scripts/build-worker.mjs"
   },
   "keywords": [],
   "type": "module",
